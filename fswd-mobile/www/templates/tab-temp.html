@@ -1,0 +1,25 @@
+<ion-view view-title="Geyser Temperature">
+    <ion-content class="grid-basic-page padding">
+        <div class="row">
+            <h3>Main Geyser</h3>
+        </div>
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                </div>
+                <select ng-model="selection" ng-change="change(selection)">
+                    <option value="last24" selected>Last 24hrs</option>
+                    <option>select date</option>
+                </select>
+            </label>
+        </div>
+        <label class="item item-input" ng-if="selection=='select date'">
+            <span class="input-label">Date</span>
+            <input type="date" ng-model="atDate" ng-change="change(selection)">
+        </label>
+        <div>{{atDate}}</div>
+        <div class="row">
+            <div google-chart chart="chartObject" class="chart-container"></div>
+        </div>
+    </ion-content>
+</ion-view>

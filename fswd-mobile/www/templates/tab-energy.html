@@ -1,0 +1,21 @@
+<ion-view view-title="Energy Usage">
+    <ion-content class="grid-basic-page padding">
+        <div class="row">
+            <h3>Main Geyser</h3>
+        </div>
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                </div>
+                <select ng-model="selection" ng-change="change(selection)">
+                    <option selected>daily</option>
+                    <option >weekly</option>
+                </select>
+            </label>
+        </div>
+        <!-- <div>{{selection}}</div> -->
+        <div class="row">
+            <div google-chart chart="chartObject" class="chart-container"></div>
+        </div>
+    </ion-content>
+</ion-view>

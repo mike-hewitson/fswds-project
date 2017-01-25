@@ -1,0 +1,50 @@
+[{
+    "$match": {
+        "geyser_id": { "$eq": "MainGeyser" }
+    }
+}, {
+    $project: {
+        _id: 0,
+        energy_used: 1,
+        yearMonthDay: { $dateToString: { format: "%Y-%m-%d", date: "$measurement_time" } }
+    }
+}, {
+    "$group": {
+        "_id": {
+            "date": "$yearMonthDay"
+        },
+        "daily_energy": {
+            "$sum": "$energy_used"
+        }
+    }
+}, {
+    $sort: { "_id.date": 1 }
+}]
+
+[{
+    "$match": {
+        "geyser_id": { "$eq": "MainGeyser" }
+    }
+}, {
+    $project: {
+        _id: 0,
+        energy_used: 1,
+        measurement_time: 1,
+        // yearMonthDay: { $dateToString: { format: "%Y-%m-%d", date: "$measurement_time" } }
+        week: { $week: "$measurement_time" }
+    }
+}, {
+    "$group": {
+        "_id": {
+            "date": "$week"
+        },
+        "week_start": {
+            "$min": "$measurement_time"
+        },
+        "weekly_energy": {
+            "$sum": "$energy_used"
+        }
+    }
+}, {
+    $sort: { "week_start": 1 }
+}]

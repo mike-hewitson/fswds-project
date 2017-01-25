@@ -1,0 +1,75 @@
+<div class="container" ng-controller="SettingsCtrl">
+    <div class="row row-content">
+        <div ng-if="!showCurrent">
+            <h3>{{message}}</h3>
+        </div>
+        <div class="col-xs-12" ng-if="showCurrent">
+            <ul class="tab-pane fade in active">
+                <div class="row">
+                    <div class="row">
+                        <form class="form-horizontal" name="updateForm" ng-submit="submitChanges()" novalidate>
+                            <table class="table">
+                                <h3>Main Geyser Settings</h3>
+                                <tbody>
+                                    <tr>
+                                        <td>Temperature Target:</td>
+                                        <td>
+                                            <input type="text" ng-model="setting.temperature_target">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Heating Allowed:</td>
+                                        <td>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" ng-model="setting.heating_allowed">
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Heating schedules</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4"></div>
+                                <div class="col-xs-4">
+                                    <h4>Time on</h4>
+                                </div>
+                                <div class="col-xs-4">
+                                    <h4>Time off</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">First period:</div>
+                                <div class="col-xs-4">
+                                        <input type="text" ng-model="setting.heating_schedules[0].time_on">
+                                </div>
+                                <div class="col-xs-4">
+                                        <input type="text" ng-model="setting.heating_schedules[0].time_off">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">Second period:</div>
+                                <div class="col-xs-4">
+                                        <input type="text" ng-model="setting.heating_schedules[1].time_on">
+                                </div>
+                                <div class="col-xs-4">
+                                        <input type="text" ng-model="setting.heating_schedules[1].time_off">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-offset-10 col-xs-2">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>

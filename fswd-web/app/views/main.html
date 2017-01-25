@@ -1,0 +1,47 @@
+<div class="container" ng-controller="MainCtrl">
+    <div class="row row-content">
+        <div ng-if="!showCurrent">
+            <h3>{{message}}</h3>
+        </div>
+        <div class="col-xs-12" ng-if="showCurrent">
+            <ul class="tab-pane fade in active">
+                <div class="row">
+                    <div class="row">
+                        <table class="table">
+                            <h3>Main Geyser{{sensor.sensor}}</h3>
+                            <tbody>
+                                <tr>
+                                    <td>Temperature:</td>
+                                    <td>{{recording.temperature.toFixed(1)}} °C</td>
+                                </tr>
+                                <tr>
+                                    <td>Target:</td>
+                                    <td>{{recording.temperature_target.toFixed(1)}} °C</td>
+                                </tr>
+                                <tr>
+                                    <td>Heater On:</td>
+                                    <td>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="{{recording.heating}}" disabled>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <td>Heating Allowed:</td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" ng-model="setting.heating_allowed">
+                                    </label>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td>Recorded at:</td>
+                                    <td>{{recording.measurement_time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>

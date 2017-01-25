@@ -1,0 +1,62 @@
+<ion-view view-title="Settings">
+    <ion-content class="grid-basic-page padding">
+        <h3>Main Geyser</h3>
+        <div class="row">
+            <div class="col col-50">Temperature target:</div>
+            <div class="col col-50">
+                <label class="item item-input">
+                    <input type="text" ng-model="setting.temperature_target">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-50">Heating allowed:</div>
+            <div class="col col-50">
+                <label class="toggle">
+                    <input type="checkbox" ng-model="setting.heating_allowed">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3>Heating schedules</h3></div>
+        </div>
+        <div class="row">
+            <div class="col col-40"></div>
+            <div class="col col-30">
+                <h4>Time on</h4>
+            </div>
+            <div class="col col-30">
+                <h4>Time off</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-40">First period:</div>
+            <div class="col col-30">
+                <label class="item item-input">
+                    <input type="text" ng-model="setting.heating_schedules[0].time_on">
+                </label>
+            </div>
+            <div class="col col-30">
+                <label class="item item-input">
+                    <input type="text" ng-model="setting.heating_schedules[0].time_off">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-40">Second period:</div>
+            <div class="col col-30">
+                <label class="item item-input">
+                    <input type="text" ng-model="setting.heating_schedules[1].time_on">
+                </label>
+            </div>
+            <div class="col col-30">
+                <label class="item item-input">
+                    <input type="text" ng-model="setting.heating_schedules[1].time_off">
+                </label>
+            </div>
+    </ion-content>
+</ion-view>

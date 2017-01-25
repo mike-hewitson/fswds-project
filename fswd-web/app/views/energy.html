@@ -1,0 +1,25 @@
+<div class="container" ng-controller="EnergyChartCtrl">
+    <div class="row row-content">
+        <div ng-if="!showData">
+            <h3>{{message}}</h3>
+        </div>
+        <div class="row>">
+            <div class="col-xs-6 col-sm-4">
+                <form id="selectForm" name="selectForm" ng-submit="loadEnergy()">
+                    <div class="input-group">
+                        <select class="form-control" ng-model="selection" ng-change="loadEnergy()">
+                            <option value="daily">daily</option>
+                            <option value="weekly">weekly</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- </div> -->
+        <div class="col-xs-12">
+            <div class="row row-content" ng-if="showData">
+                <div google-chart chart="chartObject1" style="height:600px; width:100%;"></div>
+            </div>
+        </div>
+    </div>
+</div>
